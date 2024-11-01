@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ForgeReconciler, { Text, Em, Strong, Lozenge, Button, Stack, Inline } from '@forge/react';
+import ForgeReconciler, { Text, Lozenge, Stack, Inline, Image } from '@forge/react';
 import { invoke } from '@forge/bridge';
 
 const App = () => {
@@ -35,6 +35,11 @@ const App = () => {
           <Text>The issue has description</Text>
         </Inline>
       </Stack>
+      <Inline alignBlock='baseline' space='space.100'>
+        <Image src="https://go.atlassian.com/curious-cat" size = "small"/>
+        <Image src="https://go.atlassian.com/curious-cat-2" size = "small"/>
+      </Inline>
+      
     </>
   );
 };

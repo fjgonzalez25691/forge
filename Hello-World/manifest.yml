@@ -17,3 +17,8 @@ app:
   runtime:
     name: nodejs20.x
   id: ari:cloud:ecosystem::app/5b5de2ea-8aff-40e6-a8a3-d80e5e80cabd
+permissions:
+  scopes: []
+  external:
+    images:
+      - go.atlassian.com
