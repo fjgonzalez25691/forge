@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ForgeReconciler, { Text, Em, Strong, Lozenge, Button, Stack } from '@forge/react';
+import ForgeReconciler, { Text, Em, Strong, Lozenge, Button, Stack, Inline } from '@forge/react';
 import { invoke } from '@forge/bridge';
 
 const App = () => {
@@ -7,23 +7,34 @@ const App = () => {
   useEffect(() => {
     invoke('getText', { example: 'my-invoke-variable' }).then(setData);
   }, []);
+
+  //TODO: Make lozenge text (YES/NO) and appearance property (SUCCESS/REMOVED)
+  //      non-static.
+
+  const hasValidAssignee = true;
+  const validAssigneeAppearance = (hasValidAssignee)?"success":"removed";
+  const validAssigneeLozengeText = (hasValidAssignee)?"YES":"NO";
+
+  const hasDescription = false;
+  const descriptionAppearance = (hasDescription)?"success":"removed";
+  const descriptionLozengeText = (hasDescription)?"YES":"NO";
+
+
+  //TODO: Render the loznege and text components to mimic the design 
+  //      up at the top right.
   return (
     <>
-      <Text><Strong>Hello world!</Strong></Text>
-      <Text><Em>And Hello World in italic</Em></Text>
-      <Text>
-        <Stack alignInline='start' space='space.250'>        
-          <Lozenge appearance="removed">
-            This a Lozenge. Hello!
-          </Lozenge>
+      <Stack>
+        <Inline alignBlock='baseline' space="space.100">
+          <Lozenge appearance= {validAssigneeAppearance}>{validAssigneeLozengeText}</Lozenge>
+          <Text>This issue has a valid assignee that is different from the Reporter</Text>
+        </Inline>
 
-          <Button>
-            Click me!
-          </Button>
-        </Stack>
-      </Text>
-      
-      
+        <Inline alignBlock='baseline' space="space.100">
+          <Lozenge appearance= {descriptionAppearance}>{descriptionLozengeText}</Lozenge>
+          <Text>The issue has description</Text>
+        </Inline>
+      </Stack>
     </>
   );
 };
