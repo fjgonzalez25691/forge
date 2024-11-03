@@ -7,6 +7,8 @@ modules:
       render: native
       title: Hello World
       icon: https://developer.atlassian.com/platform/forge/images/icons/issue-panel-icon.svg
+      displayConditions:
+        issueType: Error
   function:
     - key: resolver
       handler: index.handler
