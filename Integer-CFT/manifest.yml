@@ -1,0 +1,30 @@
+modules:
+  jira:customFieldType:
+    - key: integer-cft-custom-field-type-ui-kit-2-hello-world
+      name: Integer CFT
+      description: A hello world custom field.
+      type: string
+      # render: native
+      # resource: main
+      # edit:
+      #   resource: edit
+      #   render: native
+      #   isInline: true
+      # contextConfig:
+      #   resource: config
+      #   layout: basic
+      #   render: native
+      validation:
+        expression: value == null || !!value.match(configuration?.regex || "^[0-9]+$")
+        errorMessage: The value is invalid
+# resources:
+#   - key: main
+#     path: src/frontend/index.jsx
+#   - key: edit
+#     path: src/frontend/edit.jsx
+#   - key: config
+#     path: src/frontend/context-config.jsx
+app:
+  runtime:
+    name: nodejs20.x
+  id: ari:cloud:ecosystem::app/583266a7-107e-4d93-86f8-c569c3b7e28e

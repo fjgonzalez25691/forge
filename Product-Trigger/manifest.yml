@@ -4,7 +4,6 @@ modules:
       function: main
       events:
         - avi:jira:created:issue
-        - avi:jira:viewed:issue
   function:
     - key: main
       handler: index.run
